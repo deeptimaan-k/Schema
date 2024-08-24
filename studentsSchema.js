@@ -214,6 +214,10 @@ const testSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  totalMarks: {
+    type: Number,
+    required: true,
+  },
   testDate: {
     type: Date,
     required: true,
@@ -221,7 +225,14 @@ const testSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  status: {
+    type: String,
+    enum: ["Pending", "Submitted"],
+    required: true,
+    default: "Pending", // Default status is "Pending"
+  },
 });
+
 
 // Student Schema
 const studentSchema = new mongoose.Schema(
